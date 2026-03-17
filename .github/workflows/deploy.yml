@@ -1,0 +1,86 @@
+name: Build & Deploy to GCP Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:          # allow manual trigger from GitHub UI
+
+env:
+  PROJECT_ID:    publicfacing-490521
+  REGION:        us-central1                          # change if your Artifact Registry is in a different region
+  REGISTRY:      us-central1-docker.pkg.dev           # must match REGION above
+  REPOSITORY:    publicweb01                          # Artifact Registry repository name
+  IMAGE:         talence-informatixs                  # image name inside the repository
+  SERVICE:       talence-informatixs-web              # Cloud Run service name
+  PLATFORM:      managed
+
+jobs:
+  build-and-deploy:
+    name: Build, Push & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write     # required for Workload Identity Federation
+
+    steps:
+      # 1. Checkout source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Authenticate to Google Cloud via Workload Identity Federation
+      #    (recommended — no long-lived service account keys stored as secrets)
+      #    Required secrets in GitHub:
+      #      WIF_PROVIDER  — e.g. projects/123456789/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+      #      WIF_SA_EMAIL  — e.g. github-actions-sa@publicfacing-490521.iam.gserviceaccount.com
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account:            ${{ secrets.WIF_SA_EMAIL }}
+
+      # 3. Set up the gcloud CLI (already authenticated by the previous step)
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      # 4. Configure Docker to push to Artifact Registry
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.REGISTRY }} --quiet
+
+      # 5. Build the Docker image
+      - name: Build Docker image
+        run: |
+          docker build \
+            --tag "${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }}" \
+            --tag "${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:latest" \
+            .
+
+      # 6. Push image to Artifact Registry
+      - name: Push image to Artifact Registry
+        run: |
+          docker push "${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }}"
+          docker push "${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:latest"
+
+      # 7. Deploy to Cloud Run
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service:    ${{ env.SERVICE }}
+          region:     ${{ env.REGION }}
+          image:      ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }}
+          flags: |
+            --allow-unauthenticated
+            --port=8080
+            --cpu=1
+            --memory=256Mi
+            --min-instances=0
+            --max-instances=5
+            --set-env-vars=NODE_ENV=production
+
+      # 8. Print the deployed URL
+      - name: Show deployed URL
+        run: echo "Deployed to ${{ steps.deploy.outputs.url }}"
