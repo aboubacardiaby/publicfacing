@@ -2,6 +2,17 @@
    TALENCE INFORMATIXS — Main Script
    ============================================= */
 
+// ---- EmailJS configuration ----
+// 1. Sign up at https://www.emailjs.com (free tier: 200 emails/month)
+// 2. Add Gmail as an Email Service (use your Gmail + App Password)
+// 3. Create an Email Template and note the Template ID
+// 4. Copy your Public Key from Account > API Keys
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123XYZ'
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_xxxxxxx'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xxxxxxx'
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
 // ---- Navbar scroll effect ----
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -61,7 +72,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navAnchors.forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${id}` ? '#ffffff' : '';
+        a.style.color = a.getAttribute('href') === `#${id}` ? '#6366f1' : '';
       });
     }
   });
@@ -89,17 +100,48 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simulate form submission
   const btn = form.querySelector('button[type="submit"]');
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
-  setTimeout(() => {
+  const service  = form.querySelector('#service').value;
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    from_name:    name,
+    from_email:   email,
+    service_type: service || 'Not specified',
+    message:      message,
+    to_email:     'ab.diaby@gmail.com',
+  })
+  .then(() => {
     form.reset();
     btn.disabled = false;
     btn.textContent = 'Send Message';
     showToast('Thank you! Your message has been sent. We\'ll be in touch shortly.', 'success');
-  }, 1400);
+  })
+  .catch((err) => {
+    console.error('EmailJS error:', err);
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+
+    let errorMsg = 'Sorry, something went wrong. Please try again or email us directly.';
+
+    if (!navigator.onLine) {
+      errorMsg = 'No internet connection. Please check your network and try again.';
+    } else if (err && err.status === 400) {
+      errorMsg = 'Invalid request. Please check your message and try again.';
+    } else if (err && err.status === 401) {
+      errorMsg = 'Email service not configured correctly. Please contact us directly.';
+    } else if (err && err.status === 402) {
+      errorMsg = 'Email quota exceeded. Please contact us directly at ab.diaby@gmail.com.';
+    } else if (err && err.status === 403) {
+      errorMsg = 'Email service access denied. Please contact us directly.';
+    } else if (err && (err.status === 500 || err.status === 503)) {
+      errorMsg = 'Email service is temporarily unavailable. Please try again in a few minutes.';
+    }
+
+    showToast(errorMsg, 'error');
+  });
 });
 
 function isValidEmail(email) {
