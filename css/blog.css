@@ -428,6 +428,78 @@
 }
 
 /* =============================================
+   TEAM PROFILE PAGE
+   ============================================= */
+.profile-hero {
+  padding: calc(var(--nav-h) + 64px) 0 56px;
+  background: var(--dark-2);
+  text-align: center;
+}
+.profile-hero .container { max-width: 640px; }
+
+.profile-avatar {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, var(--av-a, #6366f1), var(--av-b, #06b6d4));
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.profile-avatar .avatar-initials {
+  display: flex;
+  font-size: 2.2rem;
+}
+
+.profile-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.profile-role {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(99,102,241,0.1);
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.profile-tagline {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+.profile-hero .team-socials {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.profile-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+.profile-section { margin-bottom: 48px; }
+.profile-section:last-child { margin-bottom: 0; }
+.profile-section h2 { font-size: 1.35rem; margin-bottom: 16px; }
+.profile-section > p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #3a3f5c;
+  margin-bottom: 16px;
+}
+.profile-articles { max-width: 380px; }
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {

@@ -17,7 +17,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/index.html  /usr/share/nginx/html/
 COPY --from=builder /app/css         /usr/share/nginx/html/css
 COPY --from=builder /app/js          /usr/share/nginx/html/js
-COPY --from=builder /app/blog        /usr/share/nginx/html/blog
+COPY --from=builder /app/blog         /usr/share/nginx/html/blog
+COPY --from=builder /app/team         /usr/share/nginx/html/team
 
 # Cloud Run sends traffic on PORT env var (default 8080)
 ENV PORT=8080
