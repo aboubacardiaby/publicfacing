@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legacy System Modernization: A Step-by-Step Roadmap | Talence Informatixs</title>
+  <meta name="description" content="How to modernize critical systems without the big bang rewrite that puts your business at risk." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#team">Team</a>
+        <a href="index.html" class="current">Blog</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a href="../index.html#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= ARTICLE HERO ======= -->
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Blog</a> / System Integration</div>
+      <span class="article-category">System Integration</span>
+      <h1>Legacy System Modernization: A Step-by-Step Integration Roadmap</h1>
+      <div class="article-hero-meta">
+        <div class="article-author">
+          <span class="author-avatar">AD</span>
+          <span><strong>Aboubacar Diaby</strong> · Founder &amp; CEO</span>
+        </div>
+        <span class="meta-dot"></span>
+        <span>Jul 3, 2026</span>
+        <span class="meta-dot"></span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-cover-banner">
+    <div class="banner-inner" style="--cov-a:#8b5cf6;--cov-b:#6366f1">
+      <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><path d="M18 12h12M12 18v12M36 18v12M18 36h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+    </div>
+  </div>
+
+  <!-- ======= ARTICLE CONTENT ======= -->
+  <article class="article-content">
+    <p>"Let's just rewrite it" is the most expensive sentence in enterprise software. We've seen big-bang rewrites of legacy systems blow budgets, miss deadlines by years, and — in the worst cases — get scrapped entirely after the business realized the old system, warts and all, was still running the company the whole time. Here's the roadmap we use instead.</p>
+
+    <h2>Step 1: Map before you touch anything</h2>
+    <p>Before writing a line of code, we build a complete map of what the legacy system actually does — not what the documentation says it does. That means tracing real data flows, interviewing the people who use it daily, and cataloging every downstream system that depends on it, including the "temporary" integrations built five years ago that nobody remembers approving.</p>
+
+    <h2>Step 2: Find the seams</h2>
+    <p>Every legacy system has natural boundaries — modules, data domains, or workflows that are more loosely coupled to the rest than they appear. The strangler fig pattern works by identifying these seams and routing traffic for one slice at a time to a new service, while the legacy system keeps handling everything else untouched.</p>
+    <ul>
+      <li>Start with the highest-pain, lowest-risk module — usually something with a clear input/output contract and few hidden dependencies.</li>
+      <li>Build the new service alongside the old one, not as a replacement yet.</li>
+      <li>Put a routing layer (an API gateway or reverse proxy) in front of both, capable of sending traffic to either side.</li>
+    </ul>
+
+    <h2>Step 3: Run in parallel, verify relentlessly</h2>
+    <p>Once a new module is live, we run it in shadow mode — real traffic hits both the old and new systems, but only the legacy response goes to the user. Comparing outputs catches edge cases the interviews missed, often for weeks, before the new module ever takes over for real.</p>
+    <blockquote>The scariest legacy migrations aren't the ones where nothing has been tested. They're the ones where everything was tested against a database that doesn't look like production.</blockquote>
+
+    <h2>Step 4: Cut over incrementally, with a rollback plan</h2>
+    <p>When a module has proven itself in shadow mode, we cut over traffic gradually — 5%, then 25%, then 100% — with monitoring at every step and a one-command rollback to the legacy path. Nobody should be able to tell modernization is happening except through smaller error rates and faster response times.</p>
+
+    <h2>Step 5: Decommission, don't just deprecate</h2>
+    <p>The step teams skip most often: actually turning the old code off. A "deprecated" system that's still running costs the same to maintain as one that's actively used, and it's a lingering source of confusion for new engineers. Once traffic has been at 100% on the new path for a defined stability window, we schedule a hard decommission date and stick to it.</p>
+
+    <h2>Why this approach works</h2>
+    <p>The business never has to bet the company on a single go-live date. Risk is distributed across many small, reversible cutovers instead of concentrated in one irreversible one. And because the legacy system keeps running until its replacement has proven itself under real production load, "the migration failed" stops being a catastrophic scenario and becomes, at worst, a rollback and a retry.</p>
+
+    <ul class="article-tags">
+      <li>System Integration</li>
+      <li>Legacy Modernization</li>
+      <li>Architecture</li>
+      <li>Enterprise</li>
+    </ul>
+  </article>
+
+  <!-- ======= CTA ======= -->
+  <div class="article-cta">
+    <div class="article-cta-inner">
+      <h3>Sitting on a legacy system nobody wants to touch?</h3>
+      <p>We'll help you map a modernization path that doesn't put the business at risk.</p>
+      <a href="../index.html#contact" class="btn btn-primary">Talk to Us</a>
+    </div>
+  </div>
+
+  <!-- ======= RELATED ======= -->
+  <section class="article-related">
+    <div class="container">
+      <h2>More from the blog</h2>
+      <div class="related-grid">
+
+        <article class="article-card" data-type="article">
+          <a href="web-development-trends-2026.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#6366f1;--cov-b:#06b6d4">
+              <span class="article-category">Web Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Aug 1, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>5 Web Development Trends Shaping 2026</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="react-native-vs-flutter.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#f59e0b;--cov-b:#ef4444">
+              <span class="article-category">Mobile Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="2" width="20" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="33" r="2" fill="currentColor"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 24, 2026</span><span class="meta-dot"></span><span>7 min read</span></div>
+              <h3>React Native vs. Flutter: Choosing the Right Framework</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="rest-vs-graphql-api-design.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#06b6d4;--cov-b:#0ea5e9">
+              <span class="article-category">API Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h32M8 24h20M8 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 15, 2026</span><span class="meta-dot"></span><span>8 min read</span></div>
+              <h3>REST vs. GraphQL: A Practical Guide to API Design</h3>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+        </a>
+        <p>Building innovative technology solutions that help businesses grow and thrive in the digital age.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index.html#services">Web Development</a></li>
+            <li><a href="../index.html#services">Mobile Development</a></li>
+            <li><a href="../index.html#services">System Integration</a></li>
+            <li><a href="../index.html#services">API Development</a></li>
+            <li><a href="../index.html#services">Technical Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#process">Our Process</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Talence Informatixs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/blog.js"></script>
+</body>
+</html>

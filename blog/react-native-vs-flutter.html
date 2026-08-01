@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Native vs. Flutter: Choosing the Right Framework | Talence Informatixs</title>
+  <meta name="description" content="Both frameworks ship great cross-platform apps. Here's how we decide which one fits a given project." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#team">Team</a>
+        <a href="index.html" class="current">Blog</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a href="../index.html#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= ARTICLE HERO ======= -->
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Blog</a> / Mobile Development</div>
+      <span class="article-category">Mobile Development</span>
+      <h1>React Native vs. Flutter: Choosing the Right Framework for Your Mobile App</h1>
+      <div class="article-hero-meta">
+        <div class="article-author">
+          <span class="author-avatar">AK</span>
+          <span><strong>Amina Kouyaté</strong> · Mobile Developer</span>
+        </div>
+        <span class="meta-dot"></span>
+        <span>Jul 24, 2026</span>
+        <span class="meta-dot"></span>
+        <span>7 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-cover-banner">
+    <div class="banner-inner" style="--cov-a:#f59e0b;--cov-b:#ef4444">
+      <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="2" width="20" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="33" r="2" fill="currentColor"/><path d="M6 12h8M34 12h8M6 36h8M34 36h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+    </div>
+  </div>
+
+  <!-- ======= ARTICLE CONTENT ======= -->
+  <article class="article-content">
+    <p>"Which one should we use?" is the first question in almost every mobile kickoff call. The honest answer is: it depends on your team, your timeline, and how deep you'll need to go into native platform features. Here's the framework we actually use to decide.</p>
+
+    <h2>Start with your team, not the framework</h2>
+    <p>Framework choice is a people decision before it's a technical one. If your team already knows React and your web app is built with it, React Native lets you share patterns, sometimes libraries, and definitely mental models across web and mobile. If your team is starting fresh or comes from a design-heavy background, Flutter's single rendering engine and widget-first approach tends to click faster.</p>
+
+    <h2>Where React Native wins</h2>
+    <ul>
+      <li><strong>Code sharing with an existing React web app.</strong> Business logic, state management, and API layers often port over with light changes.</li>
+      <li><strong>Hiring pool.</strong> JavaScript/TypeScript developers are easier to find and ramp up than Dart developers in most markets.</li>
+      <li><strong>Native module ecosystem.</strong> For apps that lean heavily on mature third-party SDKs (payments, maps, analytics), React Native's bridge ecosystem is deep and well-documented.</li>
+    </ul>
+
+    <h2>Where Flutter wins</h2>
+    <ul>
+      <li><strong>Pixel-perfect, highly custom UI.</strong> Flutter renders its own widgets rather than mapping to native ones, so a complex animation looks identical on iOS and Android without platform-specific tweaks.</li>
+      <li><strong>Performance-sensitive interactions.</strong> Because Flutter compiles to native ARM code and controls its own rendering pipeline, it tends to stay smoother under heavy animation or list-scrolling load.</li>
+      <li><strong>Long-term consistency.</strong> Fewer "it looks different on Android" surprises, which matters a lot for design-led products.</li>
+    </ul>
+
+    <blockquote>We've shipped production apps in both. The frameworks aren't the risk — an unclear product spec or a rushed native-integration estimate is what actually derails mobile timelines.</blockquote>
+
+    <h2>A few questions we ask before recommending either</h2>
+    <ol>
+      <li>Does this app need deep integration with a specific native SDK that only has first-class support on one platform?</li>
+      <li>Is there an existing web app whose logic we can reuse?</li>
+      <li>How custom does the UI need to be — standard platform components, or a fully bespoke design system?</li>
+      <li>What's the team's existing language experience, and how much ramp-up time does the timeline allow?</li>
+    </ol>
+
+    <h2>Our take</h2>
+    <p>For most client projects with an existing web presence and a normal app-store feature set, we lean React Native — it gets teams to a working build fastest and keeps the codebase approachable. For products where the UI is the differentiator, or where performance under animation is non-negotiable, we lean Flutter. Either way, the architecture decisions you make in the first two weeks — navigation structure, state management, offline strategy — matter more than the framework logo on the splash screen.</p>
+
+    <ul class="article-tags">
+      <li>Mobile Development</li>
+      <li>React Native</li>
+      <li>Flutter</li>
+      <li>Architecture</li>
+    </ul>
+  </article>
+
+  <!-- ======= CTA ======= -->
+  <div class="article-cta">
+    <div class="article-cta-inner">
+      <h3>Scoping a new mobile app?</h3>
+      <p>We'll help you pick the right stack for your team and timeline — no framework bias, just what ships.</p>
+      <a href="../index.html#contact" class="btn btn-primary">Talk to Us</a>
+    </div>
+  </div>
+
+  <!-- ======= RELATED ======= -->
+  <section class="article-related">
+    <div class="container">
+      <h2>More from the blog</h2>
+      <div class="related-grid">
+
+        <article class="article-card" data-type="article">
+          <a href="web-development-trends-2026.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#6366f1;--cov-b:#06b6d4">
+              <span class="article-category">Web Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Aug 1, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>5 Web Development Trends Shaping 2026</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="rest-vs-graphql-api-design.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#06b6d4;--cov-b:#0ea5e9">
+              <span class="article-category">API Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h32M8 24h20M8 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 15, 2026</span><span class="meta-dot"></span><span>8 min read</span></div>
+              <h3>REST vs. GraphQL: A Practical Guide to API Design</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="legacy-system-modernization.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#8b5cf6;--cov-b:#6366f1">
+              <span class="article-category">System Integration</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 3, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>Legacy System Modernization: A Step-by-Step Roadmap</h3>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+        </a>
+        <p>Building innovative technology solutions that help businesses grow and thrive in the digital age.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index.html#services">Web Development</a></li>
+            <li><a href="../index.html#services">Mobile Development</a></li>
+            <li><a href="../index.html#services">System Integration</a></li>
+            <li><a href="../index.html#services">API Development</a></li>
+            <li><a href="../index.html#services">Technical Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#process">Our Process</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Talence Informatixs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/blog.js"></script>
+</body>
+</html>

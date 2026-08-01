@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Talence Informatixs</title>
+  <meta name="description" content="Articles and videos on web & mobile development, system integration, and API engineering from the Talence Informatixs team." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#team">Team</a>
+        <a href="index.html" class="current">Blog</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a href="../index.html#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= BLOG HERO ======= -->
+  <section class="blog-hero">
+    <div class="container">
+      <span class="section-label">Insights &amp; Resources</span>
+      <h1 class="blog-hero-title">The Talence <span class="gradient-text">Blog</span></h1>
+      <p class="blog-hero-sub">Articles, guides, and videos on web &amp; mobile development, system integration, and API engineering — straight from the team building it.</p>
+    </div>
+  </section>
+
+  <!-- ======= BLOG LISTING ======= -->
+  <section class="blog-listing section">
+    <div class="container">
+      <div class="section-header">
+        <div class="blog-tabs">
+          <button class="blog-tab active" data-filter="all">All</button>
+          <button class="blog-tab" data-filter="article">Articles</button>
+          <button class="blog-tab" data-filter="video">Videos</button>
+        </div>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Article: Web Development -->
+        <article class="article-card" data-type="article">
+          <a href="web-development-trends-2026.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#6366f1;--cov-b:#06b6d4">
+              <span class="article-category">Web Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M13 20l5 5-5 5M22 28h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Aug 1, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>5 Web Development Trends Shaping 2026</h3>
+              <p>From AI-assisted interfaces to edge rendering, here's what's actually changing how we build for the web this year.</p>
+              <span class="article-readmore">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Video: Web Development -->
+        <div class="video-card" data-type="video" data-video-id="REPLACE_WITH_YOUTUBE_ID_1" data-title="Behind the Build: Our Web Development Process">
+          <div class="video-thumb" style="--cov-a:#6366f1;--cov-b:#06b6d4">
+            <span class="video-category">Web Development</span>
+            <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            <button class="video-play" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-duration">4:32</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span>Video</span><span class="meta-dot"></span><span>4:32</span></div>
+            <h3>Behind the Build: Our Web Development Process</h3>
+            <p>A behind-the-scenes look at how our team takes a web project from kickoff to launch.</p>
+          </div>
+        </div>
+
+        <!-- Article: Mobile Development -->
+        <article class="article-card" data-type="article">
+          <a href="react-native-vs-flutter.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#f59e0b;--cov-b:#ef4444">
+              <span class="article-category">Mobile Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="2" width="20" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="33" r="2" fill="currentColor"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 24, 2026</span><span class="meta-dot"></span><span>7 min read</span></div>
+              <h3>React Native vs. Flutter: Choosing the Right Framework</h3>
+              <p>Both frameworks ship great cross-platform apps. Here's how we decide which one fits a given project.</p>
+              <span class="article-readmore">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Video: Mobile Development -->
+        <div class="video-card" data-type="video" data-video-id="REPLACE_WITH_YOUTUBE_ID_2" data-title="React Native in Action: Live Mobile App Demo">
+          <div class="video-thumb" style="--cov-a:#f59e0b;--cov-b:#ef4444">
+            <span class="video-category">Mobile Development</span>
+            <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="2" width="20" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="33" r="2" fill="currentColor"/></svg></span>
+            <button class="video-play" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-duration">6:15</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span>Video</span><span class="meta-dot"></span><span>6:15</span></div>
+            <h3>React Native in Action: Live Mobile App Demo</h3>
+            <p>Watch a real cross-platform app come together, from component library to app-store build.</p>
+          </div>
+        </div>
+
+        <!-- Article: API Development -->
+        <article class="article-card" data-type="article">
+          <a href="rest-vs-graphql-api-design.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#06b6d4;--cov-b:#0ea5e9">
+              <span class="article-category">API Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h32M8 24h20M8 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 15, 2026</span><span class="meta-dot"></span><span>8 min read</span></div>
+              <h3>REST vs. GraphQL: A Practical Guide to API Design</h3>
+              <p>Neither is universally "better." Here's a framework for picking the right API style for your product.</p>
+              <span class="article-readmore">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Video: API Development -->
+        <div class="video-card" data-type="video" data-video-id="REPLACE_WITH_YOUTUBE_ID_3" data-title="API Design Explained: REST, GraphQL &amp; Best Practices">
+          <div class="video-thumb" style="--cov-a:#06b6d4;--cov-b:#0ea5e9">
+            <span class="video-category">API Development</span>
+            <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h32M8 24h20M8 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            <button class="video-play" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-duration">8:47</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span>Video</span><span class="meta-dot"></span><span>8:47</span></div>
+            <h3>API Design Explained: REST, GraphQL &amp; Best Practices</h3>
+            <p>A whiteboard walkthrough of how we approach API architecture for new client projects.</p>
+          </div>
+        </div>
+
+        <!-- Article: System Integration -->
+        <article class="article-card" data-type="article">
+          <a href="legacy-system-modernization.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#8b5cf6;--cov-b:#6366f1">
+              <span class="article-category">System Integration</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><path d="M18 12h12M12 18v12M36 18v12M18 36h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 3, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>Legacy System Modernization: A Step-by-Step Roadmap</h3>
+              <p>How to modernize critical systems without the "big bang" rewrite that puts your business at risk.</p>
+              <span class="article-readmore">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Video: System Integration -->
+        <div class="video-card" data-type="video" data-video-id="REPLACE_WITH_YOUTUBE_ID_4" data-title="Client Story: Modernizing a Legacy ERP System">
+          <div class="video-thumb" style="--cov-a:#8b5cf6;--cov-b:#6366f1">
+            <span class="video-category">System Integration</span>
+            <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            <button class="video-play" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-duration">5:20</span>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span>Video</span><span class="meta-dot"></span><span>5:20</span></div>
+            <h3>Client Story: Modernizing a Legacy ERP System</h3>
+            <p>A client walks through what it was like to migrate a decade-old ERP with zero downtime.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+        </a>
+        <p>Building innovative technology solutions that help businesses grow and thrive in the digital age.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index.html#services">Web Development</a></li>
+            <li><a href="../index.html#services">Mobile Development</a></li>
+            <li><a href="../index.html#services">System Integration</a></li>
+            <li><a href="../index.html#services">API Development</a></li>
+            <li><a href="../index.html#services">Technical Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#process">Our Process</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Talence Informatixs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======= VIDEO MODAL ======= -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-inner">
+      <div class="video-modal-head">
+        <span class="video-modal-title"></span>
+        <button class="video-modal-close" aria-label="Close video">&times;</button>
+      </div>
+      <div class="video-modal-frame">
+        <iframe src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/blog.js"></script>
+</body>
+</html>

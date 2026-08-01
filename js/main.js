@@ -42,7 +42,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // ---- Scroll reveal animation ----
 const revealEls = document.querySelectorAll(
-  '.service-card, .process-step, .value-item, .contact-item, .about-card, .section-header'
+  '.service-card, .process-step, .value-item, .contact-item, .about-card, .article-card, .section-header'
 );
 
 revealEls.forEach((el, i) => {

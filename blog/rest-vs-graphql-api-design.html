@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REST vs. GraphQL: A Practical Guide to API Design | Talence Informatixs</title>
+  <meta name="description" content="Neither is universally better. Here's a framework for picking the right API style for your product." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark">T</span>
+        <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#team">Team</a>
+        <a href="index.html" class="current">Blog</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a href="../index.html#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= ARTICLE HERO ======= -->
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Blog</a> / API Development</div>
+      <span class="article-category">API Development</span>
+      <h1>REST vs. GraphQL: A Practical Guide to API Design</h1>
+      <div class="article-hero-meta">
+        <div class="article-author">
+          <span class="author-avatar">KT</span>
+          <span><strong>Karim Traoré</strong> · Backend &amp; API Architect</span>
+        </div>
+        <span class="meta-dot"></span>
+        <span>Jul 15, 2026</span>
+        <span class="meta-dot"></span>
+        <span>8 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-cover-banner">
+    <div class="banner-inner" style="--cov-a:#06b6d4;--cov-b:#0ea5e9">
+      <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 16h32M8 24h20M8 32h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M38 28l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" stroke-width="2.5"/></svg></span>
+    </div>
+  </div>
+
+  <!-- ======= ARTICLE CONTENT ======= -->
+  <article class="article-content">
+    <p>Every few years "GraphQL is going to replace REST" makes the rounds again, and every few years REST is still running most of the production APIs we integrate with. The truth is simpler than a rivalry: they solve different problems well, and the right choice depends on your clients, your data shape, and your team's operational maturity.</p>
+
+    <h2>What REST still does better</h2>
+    <ul>
+      <li><strong>HTTP caching.</strong> REST's resource-based URLs map directly onto HTTP caching semantics — CDNs, browser caches, and reverse proxies all understand a GET request out of the box.</li>
+      <li><strong>Simplicity for simple contracts.</strong> If your API mostly serves a fixed set of well-known resources, REST's predictability is a feature, not a limitation.</li>
+      <li><strong>Tooling and familiarity.</strong> Every language, every monitoring tool, every API gateway has first-class REST support. Onboarding a new engineer takes an afternoon.</li>
+    </ul>
+
+    <h2>What GraphQL solves that REST doesn't</h2>
+    <ul>
+      <li><strong>Over-fetching and under-fetching.</strong> A mobile client that needs five fields from three resources can get exactly that in one request, instead of three round trips or a bloated response.</li>
+      <li><strong>Rapidly evolving frontends.</strong> When multiple client teams (web, iOS, Android) need different shapes of the same data, GraphQL lets each query for what it needs without backend changes.</li>
+      <li><strong>Strong typing end-to-end.</strong> A GraphQL schema is a contract that generates client types automatically, cutting down on an entire class of integration bugs.</li>
+    </ul>
+
+    <blockquote>The question isn't "which is more modern." It's "how many different clients need different shapes of my data, and how much do I rely on HTTP-layer caching."</blockquote>
+
+    <h2>A simple decision framework</h2>
+    <ol>
+      <li><strong>One primary client, well-known data shapes, heavy caching needs?</strong> REST, usually with a thin OpenAPI layer for documentation and client generation.</li>
+      <li><strong>Multiple client types with different data needs, evolving fast?</strong> GraphQL, with careful attention to query complexity limits and N+1 resolution.</li>
+      <li><strong>Public API consumed by third parties you don't control?</strong> REST — it's the format external developers expect and can debug with curl.</li>
+      <li><strong>Internal API powering your own apps with a small, trusted team?</strong> Either works; pick based on team familiarity.</li>
+    </ol>
+
+    <h2>Security and performance apply to both</h2>
+    <p>Regardless of style, the fundamentals don't change: authenticate every request, rate-limit aggressively, validate input at the boundary, and never trust a client-supplied ID without an authorization check behind it. GraphQL adds its own wrinkle — query depth and complexity limits — since a poorly-bounded nested query can do more damage than a REST endpoint ever could in a single request.</p>
+
+    <h2>Our default</h2>
+    <p>For most client engagements, we start with REST — it's faster to stand up, easier to secure by default, and simpler to hand off. We reach for GraphQL specifically when a project has multiple frontends with genuinely different data needs, or when the client's roadmap makes it clear the API's consumers will keep multiplying.</p>
+
+    <ul class="article-tags">
+      <li>API Development</li>
+      <li>REST</li>
+      <li>GraphQL</li>
+      <li>Backend Architecture</li>
+    </ul>
+  </article>
+
+  <!-- ======= CTA ======= -->
+  <div class="article-cta">
+    <div class="article-cta-inner">
+      <h3>Designing a new API?</h3>
+      <p>We'll help you pick the right approach and build it to scale from day one.</p>
+      <a href="../index.html#contact" class="btn btn-primary">Talk to Us</a>
+    </div>
+  </div>
+
+  <!-- ======= RELATED ======= -->
+  <section class="article-related">
+    <div class="container">
+      <h2>More from the blog</h2>
+      <div class="related-grid">
+
+        <article class="article-card" data-type="article">
+          <a href="web-development-trends-2026.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#6366f1;--cov-b:#06b6d4">
+              <span class="article-category">Web Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Aug 1, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>5 Web Development Trends Shaping 2026</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="react-native-vs-flutter.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#f59e0b;--cov-b:#ef4444">
+              <span class="article-category">Mobile Development</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="2" width="20" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="33" r="2" fill="currentColor"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 24, 2026</span><span class="meta-dot"></span><span>7 min read</span></div>
+              <h3>React Native vs. Flutter: Choosing the Right Framework</h3>
+            </div>
+          </a>
+        </article>
+
+        <article class="article-card" data-type="article">
+          <a href="legacy-system-modernization.html" class="article-card-link">
+            <div class="article-cover" style="--cov-a:#8b5cf6;--cov-b:#6366f1">
+              <span class="article-category">System Integration</span>
+              <span class="cover-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="12" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="36" r="6" stroke="currentColor" stroke-width="2.5"/></svg></span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta"><span>Jul 3, 2026</span><span class="meta-dot"></span><span>6 min read</span></div>
+              <h3>Legacy System Modernization: A Step-by-Step Roadmap</h3>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">T</span>
+          <span class="logo-text">Talence<span class="accent">Informatixs</span></span>
+        </a>
+        <p>Building innovative technology solutions that help businesses grow and thrive in the digital age.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index.html#services">Web Development</a></li>
+            <li><a href="../index.html#services">Mobile Development</a></li>
+            <li><a href="../index.html#services">System Integration</a></li>
+            <li><a href="../index.html#services">API Development</a></li>
+            <li><a href="../index.html#services">Technical Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#process">Our Process</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Talence Informatixs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/blog.js"></script>
+</body>
+</html>
