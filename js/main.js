@@ -3,13 +3,9 @@
    ============================================= */
 
 // ---- EmailJS configuration ----
-// 1. Sign up at https://www.emailjs.com (free tier: 200 emails/month)
-// 2. Add Gmail as an Email Service (use your Gmail + App Password)
-// 3. Create an Email Template and note the Template ID
-// 4. Copy your Public Key from Account > API Keys
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123XYZ'
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_xxxxxxx'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xxxxxxx'
+const EMAILJS_PUBLIC_KEY  = 'pR2XR2StgCf65QAZQ';
+const EMAILJS_SERVICE_ID  = 'service_cnaxtds';
+const EMAILJS_TEMPLATE_ID = 'template_ntnbqfj';
 
 emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
